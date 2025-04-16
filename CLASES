@@ -1,0 +1,385 @@
+¿Qué es una base de datos? 
+
+Es un contenedor de datos que permite organizar y almacenar los mismos. 
+
+Campos: 
+
+Los campos son los atributos que representan a una tabla 
+
+Bases de datos centralizada = todo en un solo servidor: 
+
+Una arquitectura donde se almacenan todos los datos 
+
+Bases de datos distribuida = datos repartido en múltiples nodos 
+
+Múltiples arquitecturas en donde se almacenan los datos y con cierta arquitectura de red 
+
+Nodo = cada maquina que forma parte del sistema distribuido 
+
+Clúster = conjunto de nodos que trabajan juntos 
+
+Replica = copia de los datos en diferentes nodos 
+
+Particionamiento = divide los datos para almacenarlos en diferentes nodos 
+
+Consistencia, Disponibilidad y Tolerancia a particiones = explicar las limitaciones y elecciones en un sistema distribuido 
+
+ARQUITECTURAS COMUNES 
+
+Amo-esclavo = nodo principal y varios esclavos 
+
+Peer-to-peer = todos los nodos son iguales 
+
+Multi-master = varios nodos pueden ser master y aceptar escrituras 
+
+Un modelo de base de datos para una arquitectura centralizada se compone de dos elementos principales: 
+
+Servidor Central: Almacena toda la base de datos y gestiona el acceso a los datos. 
+
+Clientes: Acceden al servidor para consultar o modificar la información. 
+
+Características: 
+
+Centralización: Los datos están en un solo lugar (servidor central). 
+
+Acceso: Los clientes interactúan directamente con el servidor. 
+
+Ventajas: 
+
+Simplicidad: Fácil de administrar y mantener. 
+
+Consistencia: Todos los clientes tienen acceso a los mismos datos en todo momento. 
+
+Desventajas: 
+
+Punto Único de Fallo: Si el servidor central falla, los datos no son accesibles. 
+
+Escalabilidad Limitada: Dificultad para escalar con el crecimiento de datos o usuarios. 
+
+ ----------------------------------------------------------------------------------------------------------------------
+
+Un modelo de base de datos para una arquitectura distribuida se compone de los siguientes componentes: 
+
+Nodos Distribuidos: Varios nodos almacenan partes de la base de datos. 
+
+Red de Comunicación: Facilita la comunicación entre los nodos distribuidos. 
+
+Características: 
+
+Distribución: Los datos están almacenados en varios nodos ubicados en diferentes lugares geográficos. 
+
+Acceso: Los clientes pueden acceder a los datos desde cualquier nodo. 
+
+Ventajas: 
+
+Tolerancia a Fallos: Menos riesgo de fallos catastróficos ya que no hay un solo punto de fallo. 
+
+Escalabilidad: Se puede escalar fácilmente añadiendo más nodos según sea necesario. 
+
+Desventajas: 
+
+Complejidad: Requiere una gestión y coordinación más complejas entre los nodos. 
+
+Consistencia: Puede haber problemas de consistencia debido a la distribución de los datos. 
+----------------------------------------------------------------------------------------------------------------------
+Clasificación de Bases de Datos Distribuidas  
+
+Según la distribución de los datos:  
+
+Fragmentadas  
+
+Fragmentación horizontal: divide registros por filas según condiciones específicas.  
+
+Fragmentación vertical: divide registros por columnas según el uso de los atributos.  
+
+Fragmentación mixta: combinación de fragmentación horizontal y vertical.  
+
+Replicadas  
+
+Replicación completa: cada nodo posee una copia completa de los datos.  
+
+Replicación parcial: ciertos datos se replican según necesidades específicas.  
+
+Híbridas  
+
+Combina fragmentación y replicación, según requerimientos operativos y estratégicos.  
+
+ 
+
+SEGÚN LA HOMOGENEIDAD DEL SISTEMA  
+
+HOMOGÉNEAS  
+
+Todos los nodos se ejecutan el mismo tipo de software de gestión de base de datos. 
+
+Heterogéneas  
+
+Nodos con diferentes sistemas de gestión de base de datos que interactúan mediante estándares comunes 
+
+ 
+
+SEGÚN LA AUTONOMÍA DEL NODO 
+
+Bases de datos federales 
+
+Alta autonomía loca, cada nodo mantiene control propio de sus datos 
+
+Base de datos multidatabase 
+
+Colección de base de datos independientes que cooperan mediante acuerdos explícitos 
+ 
+
+VENTAJAS DE BASES DE DATOS DISTRIBUIDAS 
+
+Mayor disponibilidad y confiabilidad 
+
+Escalabilidad eficiente 
+
+Distribución de carga 
+
+Flexibilidad y adaptación geográfica 
+----------------------------------------------------------------------------------------------------------------------
+Tipos de Fragmentación de Bases de Datos: 
+
+Fragmentación Horizontal: Divide una tabla en subconjuntos de filas basados en criterios específicos (por ejemplo, ubicación o rango de fechas). 
+
+ Ventajas: Mejora el rendimiento de las consultas, reduce la carga de cada nodo y facilita el mantenimiento. 
+
+Fragmentación Vertical: Divide una tabla en fragmentos basados en columnas, agrupando atributos relacionados. 
+
+ Ventajas: Optimiza el acceso a datos específicos, mejora la seguridad y reduce el ancho de banda necesario. 
+
+Fragmentación Mixta (Híbrida): Combina fragmentación horizontal y vertical, adaptándose mejor a las necesidades de las aplicaciones. 
+
+ Ventajas: Ofrece flexibilidad y optimiza tanto el rendimiento como la seguridad. 
+
+Almacenamiento en Bases de Datos Distribuidas: 
+
+Asignación de Fragmentos a Nodos: Los fragmentos se asignan a nodos según criterios como proximidad geográfica y capacidad de procesamiento, optimizando el tiempo de respuesta. 
+
+Replicación: Se copian fragmentos en varios nodos para aumentar la tolerancia a fallos, garantizando la disponibilidad de los datos. 
+
+Control de Consistencia y Sincronización: Se implementan mecanismos para mantener la coherencia entre nodos y garantizar que las transacciones sean consistentes y atómicas. 
+
+Consideraciones en el Diseño: 
+
+Patrones de Acceso: La fragmentación se elige según los patrones de consulta, favoreciendo la fragmentación horizontal para consultas locales. 
+
+Carga y Escalabilidad: Una distribución adecuada de los fragmentos permite equilibrar la carga y escalar el sistema de manera eficiente. 
+
+Seguridad y Privacidad: La fragmentación facilita la implementación de políticas de seguridad específicas para proteger la información sensible. 
+
+Resumen: La fragmentación horizontal, vertical y mixta optimiza la distribución de datos en bases de datos distribuidas. Combinada con replicación y mecanismos de sincronización, permite crear sistemas eficientes, escalables y seguros. 
+----------------------------------------------------------------------------------------------------------------------
+INSTANCIA : Una instancia es el entorno de ejecución del motor de base de datos. Es decir, es el conjunto de procesos, memoria y archivos que permite que puedas crear, consultar y administrar bases de datos. 
+Tipo de instancia 
+
+Nombre al conectarse 
+
+Ejemplo 
+
+Default 
+
+Solo el nombre del servidor 
+
+localhost 
+
+Named 
+
+Se le da un nombre único 
+
+localhost\Sitio_A 
+
+ 
+
+El puerto 1433 siempre debe estar activado para una instancia. 
+
+ 
+
+EJEMPLO: 
+
+Usaremos una tabla sencilla de empleados: 
+
+ 
+
+ 
+
+CREATE DATABASE FragmentacionEjemplo; 
+
+GO 
+
+USE FragmentacionEjemplo; 
+
+GO 
+
+  
+
+CREATE TABLE Empleados ( 
+
+    ID INT PRIMARY KEY, 
+
+    Nombre NVARCHAR(100), 
+
+    Apellido NVARCHAR(100), 
+
+    Departamento NVARCHAR(50), 
+
+    Salario DECIMAL(10, 2), 
+
+    Dirección NVARCHAR(200), 
+
+    Teléfono NVARCHAR(20) 
+
+); 
+
+  
+
+Fragmentación Vertical 
+
+-- Fragmento 1: Información personal 
+
+CREATE TABLE Empleados_Personal ( 
+
+    ID INT PRIMARY KEY, 
+
+    Nombre NVARCHAR(100), 
+
+    Apellido NVARCHAR(100), 
+
+    Dirección NVARCHAR(200), 
+
+    Teléfono NVARCHAR(20) 
+
+); 
+
+  
+
+-- Fragmento 2: Información laboral 
+
+CREATE TABLE Empleados_Laboral ( 
+
+    ID INT PRIMARY KEY, 
+
+    Departamento NVARCHAR(50), 
+
+    Salario DECIMAL(10, 2) 
+
+); 
+
+  
+
+-- Insertamos los datos (puede ser con SELECT INTO o INSERT SELECT) 
+
+INSERT INTO Empleados_Personal 
+
+SELECT ID, Nombre, Apellido, Dirección, Teléfono FROM Empleados; 
+
+  
+
+INSERT INTO Empleados_Laboral 
+
+SELECT ID, Departamento, Salario FROM Empleados; 
+
+ 
+
+Fragmentación Mixta (Vertical + Horizontal) 
+
+-- Fragmento para TI 
+
+CREATE TABLE Empleados_Laboral_TI ( 
+
+    ID INT PRIMARY KEY, 
+
+    Departamento NVARCHAR(50), 
+
+    Salario DECIMAL(10, 2) 
+
+); 
+
+  
+
+-- Fragmento para otros departamentos 
+
+CREATE TABLE Empleados_Laboral_Otros ( 
+
+    ID INT PRIMARY KEY, 
+
+    Departamento NVARCHAR(50), 
+
+    Salario DECIMAL(10, 2) 
+
+); 
+
+  
+
+-- Insertamos según condición 
+
+INSERT INTO Empleados_Laboral_TI 
+
+SELECT * FROM Empleados_Laboral WHERE Departamento = 'TI'; 
+
+  
+
+INSERT INTO Empleados_Laboral_Otros 
+
+SELECT * FROM Empleados_Laboral WHERE Departamento <> 'TI'; 
+
+ 
+
+Topología de replicación de datos 
+
+ 
+
+ 
+
+¿Cómo se replica? 
+
+A través de las transacciones 
+
+A través de agentes ad-hoc 
+
+¿Cuándo se replica? 
+
+Después de cada transacción - Asíncrona 
+
+Simultáneamente en todos los nodos - Síncrona 
+
+Periódicamente 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
